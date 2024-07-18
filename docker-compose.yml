@@ -11,6 +11,13 @@ services:
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_PASSWORD=password
+  redis:
+    container_name: quote_editor_redis
+    image: redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis:/data'
   # web:
   #   container_name: quote_editor_web
   #   build: .
@@ -29,3 +36,4 @@ services:
 
 volumes:
   postgres:
+  redis:
